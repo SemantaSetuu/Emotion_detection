@@ -49,7 +49,7 @@ plt.show()
 
 #Classification Report (includes support)
 report = classification_report(y_true, y_pred, target_names=class_labels)
-print("\n📊 Classification Report:\n")
+print("\nClassification Report:\n")
 print(report)
 
 #Accuracy & Loss Plot
