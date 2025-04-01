@@ -1,4 +1,4 @@
-# =================== evaluate_model.py ===================
+#evaluate_model.py
 import numpy as np
 import os
 import matplotlib.pyplot as plt
@@ -8,11 +8,11 @@ import cv2
 from sklearn.metrics import classification_report, confusion_matrix
 import random
 
-# ========== Load the Trained Model ==========
+# Load the Trained Model
 model_path = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/project_code/emotion_detection_cnn_model.h5"
 model = tf.keras.models.load_model(model_path)
 
-# ========== Load Test Data ==========
+#Load Test Data
 test_dir = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/test"
 img_size = (48, 48)
 batch_size = 128
@@ -27,12 +27,12 @@ test_generator = test_datagen.flow_from_directory(
     shuffle=False
 )
 
-# ========== Evaluate Accuracy & Loss ==========
+#Evaluate Accuracy & Loss
 loss, acc = model.evaluate(test_generator)
 print(f"\n✅ Test Accuracy: {acc*100:.2f}%")
 print(f"📉 Test Loss: {loss:.4f}\n")
 
-# ========== Generate Predictions ==========
+#Generate Predictions
 y_true = test_generator.classes
 class_labels = list(test_generator.class_indices.keys())
 y_pred_probs = model.predict(test_generator)
@@ -47,12 +47,12 @@ plt.ylabel("True")
 plt.title("Confusion Matrix")
 plt.show()
 
-# ========== Classification Report (includes support) ==========
+#Classification Report (includes support)
 report = classification_report(y_true, y_pred, target_names=class_labels)
 print("\n📊 Classification Report:\n")
 print(report)
 
-# ========== Accuracy & Loss Plot ==========
+#Accuracy & Loss Plot
 history_path = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/training_history.npy"
 if os.path.exists(history_path):
     history = np.load(history_path, allow_pickle=True).item()
@@ -67,8 +67,8 @@ if os.path.exists(history_path):
     ax2.legend()
     plt.show()
 
-# ========== Random 6–7 Predictions (Visual Check) ==========
-print("\n🔍 Sample Predictions:\n")
+#Random 6–7 Predictions (Visual Check)
+print("\nSample Predictions:\n")
 fig, axes = plt.subplots(2, 4, figsize=(12,6))
 fig.suptitle("Random Test Samples with Predicted vs True Labels")
 
@@ -95,11 +95,11 @@ for i, idx in enumerate(sample_indices):
 plt.tight_layout()
 plt.show()
 
-# ========== Bonus: Show Misclassified Samples Only ==========
-print("\n❗ Misclassified Samples:\n")
+#Bonus: Show Misclassified Samples Only
+print("\n Misclassified Samples:\n")
 wrong_indices = np.where(y_true != y_pred)[0]
 if len(wrong_indices) == 0:
-    print("🎉 No misclassified samples!")
+    print("No misclassified samples!")
 else:
     sample_wrong = random.sample(list(wrong_indices), min(6, len(wrong_indices)))
     fig, axes = plt.subplots(1, len(sample_wrong), figsize=(15,4))
