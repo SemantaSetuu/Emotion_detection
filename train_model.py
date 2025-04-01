@@ -1,4 +1,4 @@
-# =================== train_model.py ===================
+#train_model.py
 import numpy as np
 import os
 import matplotlib.pyplot as plt
@@ -12,11 +12,11 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.regularizers import l2
 
-# Paths
+# paths
 train_dir = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/train"
 test_dir = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/test"
 
-# Data Generators
+# data generators
 train_datagen = ImageDataGenerator(
     rescale=1./255,
     rotation_range=10,
@@ -42,7 +42,7 @@ class_weights_dict = dict(enumerate(np.clip(class_weights, 0.5, 2.0)))
 
 # Model
 model = Sequential([
-    Input(shape=(48,48,1)),
+    Input(shape=(48,48,1)),#i am giving the model a 48×48 grayscale image.
     Conv2D(64, (3,3), activation='relu', padding='same', kernel_regularizer=l2(1e-4)),
     BatchNormalization(),
     Conv2D(64, (3,3), activation='relu', padding='same', kernel_regularizer=l2(1e-4)),
@@ -106,4 +106,4 @@ model.save("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/emotio
 
 # Evaluate
 loss, acc = model.evaluate(test_generator)
-print(f"🎯 Test Accuracy: {acc*100:.2f}% | Test Loss: {loss:.4f}")
+print(f"Test Accuracy: {acc*100:.2f}% | Test Loss: {loss:.4f}")

@@ -16,7 +16,7 @@ model = tf.keras.models.load_model("C:/Users/seman/Desktop/clg/2nd_sem/generativ
 emotion_labels = ['angry', 'disgusted', 'fearful', 'happy', 'neutral', 'sad', 'surprised']
 
 st.set_page_config(page_title="Emotion Detection Web App", layout="centered")
-st.title("😊 Real-Time & Image-based Emotion Detection")
+st.title("Real-Time & Image-based Emotion Detection")
 st.write("Upload an image, use your webcam, or capture a live photo to detect emotions.")
 
 # Upload image section
@@ -37,7 +37,7 @@ if uploaded_file is not None:
         confidence = prediction[predicted_index] * 100
 
         st.image(cv2.cvtColor(cv2.imdecode(file_bytes, 1), cv2.COLOR_BGR2RGB), caption="Uploaded Image", use_column_width=True)
-        st.markdown(f"### 🎯 Predicted Emotion: **{predicted_label.upper()} ({confidence:.1f}%)**")
+        st.markdown(f"Predicted Emotion: {predicted_label.upper()} ({confidence:.1f}%)")
 
         # Plot bar chart of all predictions
         chart_df = pd.DataFrame({
@@ -51,12 +51,12 @@ if uploaded_file is not None:
         )
         st.altair_chart(bar_chart, use_container_width=True)
     else:
-        st.error("⚠️ Unable to read image. Please upload a valid image file.")
+        st.error("⚠Unable to read image. Please upload a valid image file.")
 
 st.markdown("---")
-st.subheader("📸 Real-Time Webcam Emotion Detection")
+st.subheader("Real-Time Webcam Emotion Detection")
 
-if st.button("▶️ Start Real-Time Camera Prediction"):
+if st.button("Start Real-Time Camera Prediction"):
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     cap = cv2.VideoCapture(0)
     st.info("Press 'Q' on the camera window to stop.")
@@ -93,15 +93,15 @@ if st.button("▶️ Start Real-Time Camera Prediction"):
     cv2.destroyAllWindows()
 
 st.markdown("---")
-st.subheader("📷 Quick Capture and Predict")
+st.subheader("Quick Capture and Predict")
 
-if st.button("📸 Capture and Predict from Camera"):
+if st.button("Capture and Predict from Camera"):
     cap = cv2.VideoCapture(0)
     ret, frame = cap.read()
     cap.release()
 
     if not ret:
-        st.error("❌ Failed to capture image from camera.")
+        st.error("Failed to capture image from camera.")
     else:
         gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
@@ -122,7 +122,7 @@ if st.button("📸 Capture and Predict from Camera"):
                 confidence = prediction[predicted_index] * 100
 
                 st.image(frame, channels="BGR", caption="Quick Captured Frame")
-                st.markdown(f"### 🎯 Predicted Emotion: **{predicted_label.upper()} ({confidence:.1f}%)**")
+                st.markdown(f"Predicted Emotion: {predicted_label.upper()} ({confidence:.1f}%)")
 
                 # Bar chart of prediction confidence
                 chart_df = pd.DataFrame({
