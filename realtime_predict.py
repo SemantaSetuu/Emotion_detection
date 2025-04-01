@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 
 # Load trained model
-model_path = r"C:\Users\seman\Desktop\fer2013_cnn_local.h5"
+model_path = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/project_code/emotion_detection_cnn_model.h5"
 model = tf.keras.models.load_model(model_path)
 
 # Define emotion classes (same order as training)

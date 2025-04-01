@@ -13,8 +13,8 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.regularizers import l2
 
 # Paths
-train_dir = r"C:\Users\seman\Desktop\clg\2nd_sem\generative_AI\emotion detection\train"
-test_dir = r"C:\Users\seman\Desktop\clg\2nd_sem\generative_AI\emotion detection\test"
+train_dir = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/train"
+test_dir = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/test"
 
 # Data Generators
 train_datagen = ImageDataGenerator(
@@ -98,11 +98,11 @@ def plot_metrics(history):
 plot_metrics(history)
 
 # Save history for later evaluation
-np.save(r"C:\Users\seman\Desktop\training_history.npy", history.history)
+np.save("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/training_history.npy", history.history)
 
 
 # Save Model
-model.save(r"C:\Users\seman\Desktop\fer2013_cnn_local.h5")
+model.save("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/emotion_detection_cnn_model.h5")
 
 # Evaluate
 loss, acc = model.evaluate(test_generator)
