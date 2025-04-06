@@ -100,9 +100,8 @@ plot_metrics(history)
 # Save history for later evaluation
 np.save("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/training_history.npy", history.history)
 
-
 # Save Model
-model.save("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/emotion_detection_cnn_model.h5")
+model.save("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/CNN_emotion_detection_model.h5")
 
 # Evaluate
 loss, acc = model.evaluate(test_generator)

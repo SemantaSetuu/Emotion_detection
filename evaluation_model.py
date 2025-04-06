@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 import random
 
 # Load the Trained Model
-model_path = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/project_code/emotion_detection_cnn_model.h5"
+model_path = r"C:\Users\seman\Desktop\clg\2nd_sem\generative_AI\project_code\CNN_emotion_detection_model.h5"
 model = tf.keras.models.load_model(model_path)
 
 #Load Test Data
@@ -29,8 +29,8 @@ test_generator = test_datagen.flow_from_directory(
 
 #Evaluate Accuracy & Loss
 loss, acc = model.evaluate(test_generator)
-print(f"\n✅ Test Accuracy: {acc*100:.2f}%")
-print(f"📉 Test Loss: {loss:.4f}\n")
+print(f"\nTest Accuracy: {acc*100:.2f}%")
+print(f"Test Loss: {loss:.4f}\n")
 
 #Generate Predictions
 y_true = test_generator.classes
@@ -41,7 +41,7 @@ y_pred = np.argmax(y_pred_probs, axis=1)
 #confusion matrix
 cm = confusion_matrix(y_true, y_pred)
 plt.figure(figsize=(8,6))
-sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=class_labels, yticklabels=class_labels)
+sns.heatmap(cm, annot=True, fmt="d", xticklabels=class_labels, yticklabels=class_labels)
 plt.xlabel("Predicted")
 plt.ylabel("True")
 plt.title("Confusion Matrix")
@@ -53,7 +53,7 @@ print("\nClassification Report:\n")
 print(report)
 
 #Accuracy & Loss Plot
-history_path = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/training_history.npy"
+history_path = r"C:\Users\seman\Desktop\clg\2nd_sem\generative_AI\project_code\training_history.npy"
 if os.path.exists(history_path):
     history = np.load(history_path, allow_pickle=True).item()
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))

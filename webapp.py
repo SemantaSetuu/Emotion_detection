@@ -10,7 +10,7 @@ import datetime
 import os
 
 # Load trained model
-model = tf.keras.models.load_model("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/emotion_detection_cnn_model.h5")
+model = tf.keras.models.load_model("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/CNN_emotion_detection_model.h5")
 
 # Define emotion labels
 emotion_labels = ['angry', 'disgusted', 'fearful', 'happy', 'neutral', 'sad', 'surprised']
@@ -51,7 +51,7 @@ if uploaded_file is not None:
         )
         st.altair_chart(bar_chart, use_container_width=True)
     else:
-        st.error("⚠Unable to read image. Please upload a valid image file.")
+        st.error("Unable to read image. Please upload a valid image file.")
 
 st.markdown("---")
 st.subheader("Real-Time Webcam Emotion Detection")
