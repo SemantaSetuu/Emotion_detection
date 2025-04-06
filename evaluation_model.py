@@ -45,6 +45,8 @@ sns.heatmap(cm, annot=True, fmt="d", xticklabels=class_labels, yticklabels=class
 plt.xlabel("Predicted")
 plt.ylabel("True")
 plt.title("Confusion Matrix")
+
+
 plt.show()
 
 #Classification Report (includes support)

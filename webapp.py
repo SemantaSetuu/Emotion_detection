@@ -10,7 +10,7 @@ import datetime
 import os
 
 # Load trained model
-model = tf.keras.models.load_model("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/CNN_emotion_detection_model.h5")
+model = tf.keras.models.load_model("CNN_emotion_detection_model.h5")
 
 # Define emotion labels
 emotion_labels = ['angry', 'disgusted', 'fearful', 'happy', 'neutral', 'sad', 'surprised']
