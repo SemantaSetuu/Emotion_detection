@@ -1,9 +1,9 @@
-tensorflow==2.15.0
+tensorflow
 numpy
+opencv-python
 matplotlib
 seaborn
 pandas
-opencv-python
-scikit-learn
-streamlit
 altair
+streamlit
+scikit-learn
