@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 import random
 
 # Load the Trained Model
-model_path = r"C:\Users\seman\Desktop\clg\2nd_sem\generative_AI\project_code\CNN_emotion_detection_model.h5"
+model_path = "CNN_emotion_detection_model.h5"
 model = tf.keras.models.load_model(model_path)
 
 #Load Test Data
