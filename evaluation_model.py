@@ -13,7 +13,7 @@ model_path = "CNN_emotion_detection_model.h5"
 model = tf.keras.models.load_model(model_path)
 
 #Load Test Data
-test_dir = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/test"
+test_dir = "emotion detection datasets/test"
 img_size = (48, 48)
 batch_size = 128
 
@@ -55,7 +55,7 @@ print("\nClassification Report:\n")
 print(report)
 
 #Accuracy & Loss Plot
-history_path = r"C:\Users\seman\Desktop\clg\2nd_sem\generative_AI\project_code\training_history.npy"
+history_path = "training_history.npy"
 if os.path.exists(history_path):
     history = np.load(history_path, allow_pickle=True).item()
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))

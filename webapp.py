@@ -2,12 +2,9 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
-import io
 import pandas as pd
 import altair as alt
-import datetime
-import os
+
 
 # Load trained model
 model = tf.keras.models.load_model("CNN_emotion_detection_model.h5")

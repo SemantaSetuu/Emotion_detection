@@ -1,8 +1,6 @@
 #train_model.py
 import numpy as np
-import os
 import matplotlib.pyplot as plt
-import seaborn as sns
 import tensorflow as tf
 from sklearn.utils.class_weight import compute_class_weight
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -13,8 +11,8 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.regularizers import l2
 
 # paths
-train_dir = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/train"
-test_dir = "C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/emotion detection/test"
+train_dir = "emotion detection datasets/train"
+test_dir = "emotion detection datasets/test"
 
 # data generators
 train_datagen = ImageDataGenerator(
@@ -98,10 +96,10 @@ def plot_metrics(history):
 plot_metrics(history)
 
 # Save history for later evaluation
-np.save("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/training_history.npy", history.history)
+np.save("training_history.npy", history.history)
 
 # Save Model
-model.save("C:/Users/seman/Desktop/clg/2nd_sem/generative_AI/project_code/CNN_emotion_detection_model.h5")
+model.save("CNN_emotion_detection_model.h5")
 
 # Evaluate
 loss, acc = model.evaluate(test_generator)
