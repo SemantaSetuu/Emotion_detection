@@ -45,14 +45,23 @@ Dataset link: FER-2013 on [Kaggle](https://www.kaggle.com/datasets/msambare/fer2
 ##  Folder Structure
 
 project_code/
+
 ├── emotion detection datasets/ # Folder containing training and test datasets
+
 │ ├── train/
+
 │ └── test/
+
 ├── train_model.py # CNN training script
+
 ├── evaluation_model.py # Model evaluation, confusion matrix, and test output
+
 ├── training_history.npy # Saved training metrics
+
 ├── CNN_emotion_detection_model.h5 # Trained model
+
 ├── webapp.py # Streamlit app for image/webcam-based prediction
+
 ├── requirements.txt # Python dependencies
 
 ---
